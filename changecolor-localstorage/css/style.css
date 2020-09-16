@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    align-items: center;
+    box-shadow: 0 0 8px #333;
+}
+
+
+.logo {
+    width: 80px;
+}
+
+.menu {
+    display: flex;
+}
+
+.linkMenu {
+    text-decoration: none;
+    padding: 15px 20px;
+    margin: 0 20px;
+    border-right: 1px solid #333;
+}
+
+.main {
+    padding-top: 50px;
+    max-width: 1100px;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+.main > h1 {
+    margin-bottom: 40px;
+}
+
+.main > img {
+    width: 68%;
+    margin: 40px 0;
+}
+
+.footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    box-shadow: 0 0 8pb #333;
+
+}
+
+.footer > p {
+    text-align: center;
+}
+
+.tema {
+    right: 0;
+    position: absolute;
+    top: 200px;
+}
+.colortema {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(192,133,5);
+    cursor: pointer;
+}
+.dark {
+    background-color: #333;
+}
+
+.light {
+    background-color: #fff;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.container.dark .main {
+background-color: #333333;
+}
+
+.container.dark p,
+.container.dark h1,
+.container.dark a {
+    color: #f4f4f4;
+}
+
+
+.container.dark .header,
+.container.dark .footer {
+
+    box-shadow: 0 0 8px gray;
+}
+
+.container.light .main {
+    background-color: #ffffff;
+}
+    
+.container.light p,
+.container.light h1,
+.container.light a {
+    color: black;
+}
+    
+    
+.container.light .header,
+.container.light .footer {
+    box-shadow: 0 0 8px gray;
+}
+
+
+
+
+.container.pink .main {
+    background-color: pink;
+}
+    
+.container.pink p,
+.container.pink h1,
+.container.pink a {
+    color: black;
+}
+    
+    
+.container.pink .header,
+.container.pink .footer {
+    box-shadow: 0 0 8px gray;
+}
+
+
+.container.blue .main {
+    background-color: blue;
+}
+
+.container.blue p,
+.container.blue h1,
+.container.blue a {
+    color: #fff;
+}
+
+.container.blue .header,
+.container.blue .footer {
+    box-shadow: 0 0 8px gray;
+}
