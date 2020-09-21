@@ -1,0 +1,188 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  
+
+
+
+
+
+.xyz { 
+    background-size: auto; 
+    text-align: center; 
+    padding-top: 100px; 
+} 
+.btn-circle.btn-sm { 
+  
+    width: 30px; 
+    height: 30px; 
+    padding: 6px 0px; 
+    border-radius: 15px; 
+    font-size: 8px; 
+    text-align: center; 
+    
+} 
+.btn-circle.btn-md { 
+    width:  50px; 
+    height: 50px; 
+    padding: 7px 10px; 
+    border-radius: 25px; 
+    font-size: 10px; 
+    text-align: center; 
+} 
+.btn-circle.btn-xl { 
+    width: 70px; 
+    height: 70px; 
+    padding: 10px 16px; 
+    border-radius: 35px; 
+    font-size: 12px; 
+    text-align: center; 
+} 
+
+
+
+.screen {
+    
+    width:324px;
+    height:40px;
+    margin: 12px auto 30px;
+    padding:15px 20px;
+    color:#c0c0c0;
+    text-align: right;
+    font-size: 3em;
+    letter-spacing: 3px;
+    overflow:hidden;
+    border:#000 1px solid;
+    border-radius:7px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    box-shadow:inset rgba(0,0,0,1) 0px 1px 4px, inset rgba(225,225,225,0.3) 0px -2px 4px -2px;
+    -webkit-box-shadow:inset rgba(0,0,0,1) 0px 1px 4px, inset rgba(225,225,225,0.3) 0px -2px 4px -2px;
+    -moz-box-shadow:inset rgba(0,0,0,1) 0px 1px 4px, inset rgba(225,225,225,0.3) 0px -2px 4px -2px;
+    background-image: -moz-linear-gradient(top, #3e3e3e 0%, #303030 100%);
+    background-image: -webkit-linear-gradient(top, #3e3e3e 0%, #303030 100%);
+    background-image: linear-gradient(top, #3e3e3e 0%, #303030 100%);
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    display:inline-block;
+}
+ 
+.buttons {
+    padding:0;
+    width:400px;
+    margin:auto;
+    overflow: hidden;
+    list-style: none;
+}
+ 
+.buttons li {
+     display:inline;
+     float:left;
+     padding:0px;
+     margin-right:13px;
+     margin-bottom:10px;
+}
+ 
+.buttons li:nth-child(3n) {
+    margin-right:0;
+}
+ 
+.buttons a {
+    display:block;
+    width:95px;
+    height:68px;
+    padding:18px 0 12px;
+    color:#c0c0c0 !important;
+    font-family: "Myriad Pro", Arial, sans-serif;
+    font-size:1.0em;
+    font-weight: 500;
+    letter-spacing: -2px;
+    background-color:#2f2f2f;
+    border: #000 1px solid;
+    border-radius:60px;
+    -webkit-border-radius:60px;
+    -moz-border-radius:60px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow:#000 0px -1px 0px;
+    box-shadow: inset rgba(255,255,255,0.1) 0px 1px 0px, inset rgba(0,0,0,0.2) 0px -2px 2px;
+    -webkit-box-shadow: inset rgba(255,255,255,0.1) 0px 1px 0px, inset rgba(0,0,0,0.2) 0px -2px 2px;
+    -moz-box-shadow: inset rgba(255,255,255,0.1) 0px 1px 0px, inset rgba(0,0,0,0.2) 0px -2px 2px;
+    background-image:-moz-linear-gradient(top, #363636 0%, #313234 40%, #2f2f2f 100%);
+    background-image:-webkit-linear-gradient(top, #363636 0%, #313234 40%, #2f2f2f 100%);
+    background-image:linear-gradient(top, #363636 0%, #313234 40%, #2f2f2f 100%);
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    cursor: pointer;
+}
+ 
+.buttons a:active {
+    box-shadow: inset rgba(0,0,0,0.5) 0px 2px 8px;
+    background-image:-moz-linear-gradient(top, #2f2f2f 0%, #363636 100%);
+    background-image:-webkit-linear-gradient(top, #2f2f2f 0%, #363636 100%);
+    background-image:linear-gradient(top, #2f2f2f 0%, #363636 100%);
+}
+ 
+.tall {
+    height:151px !important;
+}
+ 
+.wide {
+    width:205px !important;
+}
+ 
+.shift {
+    margin-top:-78px;
+}
