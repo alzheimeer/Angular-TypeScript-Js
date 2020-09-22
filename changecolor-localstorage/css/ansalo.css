@@ -205,27 +205,82 @@ input:checked+.slider:before {
 
 
 
-.dark {
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fafafa;
+
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+
+body.dark {
+  background: #292C35;
+  color: #ccc;
+}
+
+body.retro {
+  background: #5a77cf;
+  color: #ccc;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
   background-color: #333;
+  border-radius: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 26px;
+  width: 50px;
+
 }
 
-.light {
+.label .ball {
   background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
 }
 
-.container.dark .main {
-  background-color: #333333;
+.checkbox:checked+.label .ball {
+  transform: translateX(24px);
 }
 
-.container.dark p,
-.container.dark h1,
-.container.dark a {
-  color: #f4f4f4;
-}
-
-
-.container.dark .header,
-.container.dark .footer {
-
-  box-shadow: 0 0 8px gray;
+footer {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
