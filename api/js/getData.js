@@ -9,9 +9,9 @@ const getData = (url) => {
         return fetch(url)
                 .then((respuesta) => respuesta.json())
                 .then((json) => {
-                        llenarDatos(json);
+                        llenarDatos(json), paginacion(json.info);
                 })
-                .cath((error) => {
+                .catch((error) => {
                         console.log("Error: ", error);
                 });
 
@@ -36,6 +36,25 @@ const llenarDatos = (data) => {
         });
         //imprimir datos en html
         document.getElementById("datosPersonajes").innerHTML = html;
+}
+
+
+//Paginacion
+const paginacion = (data) => {
+
+        let prevDisable = "";
+        let nextDisable = "";
+
+        data.prev == null ? prevDisable = "disabled" : prevDisable = "";
+        data.next == null ? nextDisable = "disabled" : nextDisable = "";
+
+
+
+
+        let html = "";
+        html += `<li class="page-item ${prevDisable}"><a class="page-link" onclick="getData('${data.prev}')">Previous</a></li>`;
+        html += `<li class="page-item ${nextDisable}"><a class="page-link" onclick="getData('${data.next}')">Next</a></li>`;
+        document.getElementById("paginacion").innerHTML = html;
 }
 
 //invoco la funcion

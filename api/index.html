@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>RICK AND MORTY</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/x.css" />
-    <!-- bootstrap -->
-  </head>
-  <body>
-    <div class="header position-relative">
-      <header class="bg-dark text-center text-success">
-        <h1>Personajes Rick And Morty por @alzheimeer</h1>
-      </header>
-    </div>
-    <div class="container position-relative">
-      <div id="datosPersonajes" class="row position-absolute"></div>
-    </div>
+<head>
+  <title>RICK AND MORTY</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./js/jquery-3.5.1.slim.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/x.css" />
+  <!-- bootstrap -->
+</head>
 
-    <script src="./js/getData.js"></script>
-  </body>
+<body>
+  <div class="header position-relative">
+    <header class="bg-dark text-center text-success">
+      <h1>Personajes Rick And Morty por @alzheimeer</h1>
+      <ul id="paginacion" class="pagination"></ul>
+    </header>
+  </div>
+  <div class="container position-relative">
+    <div id="datosPersonajes" class="row position-absolute"></div>
+  </div>
+
+
+
+  <script src="./js/jquery-3.5.1.slim.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
+  <script src="./js/getData.js"></script>
+</body>
+
 </html>
