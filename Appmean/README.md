@@ -7,7 +7,7 @@ APPMEAN
 5.	npm i mongoose
 6.	npm i jsonwebtokken
 7.	creamos subcarpeta models y dentro creamos archivo usuario.js
-```json
+```
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 //Esquema
@@ -40,7 +40,7 @@ module.exports.esquemaUsuario = esquemaUsuario;
 
 ```
 8.	creamos en la subcarpeta Models y dentro creamos archivo tablero.js
-```json
+```
 const mongoose = require("mongoose");
 //Esquema
 const esquemaTablero = new mongoose.Schema({
@@ -59,7 +59,7 @@ module.exports.Tablero = Tablero;
 ```
 9.	Creamos una carpeta afuera llamada routes
   Y dentro creamos un archivo llamada usuario.js
-  ```json
+  ```
 //Modulos internos
 const express = require("express");
 const router = express.Router();
@@ -90,7 +90,7 @@ module.exports = router;
 Ahora vamos a editar el index.js que esta en la carpeta inicial
 
 
-```json
+```
 //Modulos Internos
 const express = require("express");
 const mongoose = require("mongoose");
