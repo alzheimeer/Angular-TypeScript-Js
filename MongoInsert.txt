@@ -1,0 +1,43 @@
+db.Producto.insertMany([
+{
+	nombre: "Lenteja",
+	tipo: "Grano",
+	precio: 1500
+},
+{
+	nombre: "Frijol",
+	tipo: "Grano",
+	precio: 3500
+},
+{
+	nombre: "Garvanzo",
+	tipo: "Grano",
+	precio: 2500
+},
+{
+	nombre: "Lentejas",
+	tipo: "Grano",
+	precio: 1700
+},
+{
+	nombre: "Arvejas",
+	tipo: "Grano",
+	precio: 1600
+}
+])
+
+
+
+
+db.Stock.insertMany([
+{
+	producto: 1,
+	fechaRegistro: new Date(),
+	cantidad: 2,
+
+},
+{
+	producto: 2,
+	fechaRegistro: new Date(),
+	cantidad: 5,
+}])
