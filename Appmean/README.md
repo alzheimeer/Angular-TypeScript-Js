@@ -7,6 +7,7 @@ APPMEAN
 5.	npm i mongoose
 6.	npm i jsonwebtokken
 7.	creamos subcarpeta models y dentro creamos archivo usuario.js
+```json
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 //Esquema
@@ -36,7 +37,10 @@ esquemaUsuario.methods.generateJWT = function () {
 const Usuario = mongoose.model("usuario", esquemaUsuario);
 module.exports.Usuario = Usuario;
 module.exports.esquemaUsuario = esquemaUsuario;
+
+```
 8.	creamos en la subcarpeta Models y dentro creamos archivo tablero.js
+```json
 const mongoose = require("mongoose");
 //Esquema
 const esquemaTablero = new mongoose.Schema({
@@ -52,9 +56,10 @@ const esquemaTablero = new mongoose.Schema({
 //creamos los exports
 const Tablero = mongoose.model("tablero", esquemaTablero);
 module.exports.Tablero = Tablero;
-
+```
 9.	Creamos una carpeta afuera llamada routes
   Y dentro creamos un archivo llamada usuario.js
+  ```json
 //Modulos internos
 const express = require("express");
 const router = express.Router();
@@ -81,11 +86,11 @@ router.post("/", async (req, res) => {
 });
 //Exports
 module.exports = router;
-
+```
 Ahora vamos a editar el index.js que esta en la carpeta inicial
 
 
-
+```json
 //Modulos Internos
 const express = require("express");
 const mongoose = require("mongoose");
@@ -110,7 +115,7 @@ mongoose
   .then(() => console.log("Conexion con mongo: OK"))
   .catch((error) => console.log("Conexion con mongo: OFF"));
 
-
+```
 
 Ahora corremos el servidor:
 node index.js
@@ -120,6 +125,7 @@ node index.js
 Ahora abrimos postman teniendo mongod ya corriendo 
 En postman escogemos nuevo y post vamos a body abajito escogemos raw, y a lo ultimo donde dice txt lo cambiamos por JSON
 Y abajo copiamos lo siguiente
+```json
 {
     "nombre": "Pepe",
     "cedula": "123456",
@@ -127,6 +133,7 @@ Y abajo copiamos lo siguiente
     "correo": "pepe@fsafas.com",
     "pass": "fsafasfasd"
 }
+```
 
 Luego le damos SEND.
 Aquí ya debería crear la base de datos 
