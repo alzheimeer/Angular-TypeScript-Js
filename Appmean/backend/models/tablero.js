@@ -12,4 +12,6 @@ const esquemaTablero = new mongoose.Schema({
 });
 //creamos los exports
 const Tablero = mongoose.model("tablero", esquemaTablero);
-module.exports.Tablero = Tablero;
+// podriamos exportarlo asi module.exports.Tablero = Tablero; pero cuando se llama se deben colocar llaves
+// lo vamos enviar directo como una ruta
+module.exports = Tablero;

@@ -28,5 +28,6 @@ esquemaUsuario.methods.generateJWT = function () {
 };
 //
 const Usuario = mongoose.model("usuario", esquemaUsuario);
+// podriamos exportarlo asi module.exports = Usuario; pero no usariamos las llaves
 module.exports.Usuario = Usuario;
 module.exports.esquemaUsuario = esquemaUsuario;
