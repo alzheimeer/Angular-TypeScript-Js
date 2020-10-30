@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 //Esquema
 const esquemaTablero = new mongoose.Schema({
-  idusuario: String,
+  idUsuario: String,
   nombre: String,
   descripcion: String,
   sticker: String,
+  estado: String,
   fecha: {
     type: Date,
     default: Date.now,

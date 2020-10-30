@@ -45,10 +45,11 @@ module.exports.esquemaUsuario = esquemaUsuario;
 const mongoose = require("mongoose");
 //Esquema
 const esquemaTablero = new mongoose.Schema({
-  idusuario: String,
+  idUsuario: String,
   nombre: String,
   descripcion: String,
   sticker: String,
+  estado: String,
   fecha: {
     type: Date,
     default: Date.now,
@@ -243,6 +244,7 @@ router.post("/", auth, async (req, res) => {
     idUsuario: usuario._id,
     nombre: req.body.nombre,
     descripcion: req.body.descripcion,
+    estado: req.body.estado,
   });
   //enviamos el resultado
   const result = await tablero.save();
@@ -268,3 +270,82 @@ seleccionamos Authorization y BearToken y pegamos aqui este token y ebn el body 
     "descripcion": "crear home en html y css3"
 }
 ```
+
+12.AHORA VAMOS A CONSULTAR LAS TAREAS QUE TENGA ESE USUARIO, APENAS SE LOGEE LE MUESTRE
+Nos colocamos en tablero routes
+```
+//12. Obtener actividades de usuario
+router.get("/lista", auth, async (req, res) => {
+  //Buscar el id del usuario logeado
+  const usuario = await Usuario.findById(req.usuario._id);
+  //si el usuario no existe
+  if (!usuario) return res.status(401).send("El usuario no existe");
+  //si existe creamos una actividad en el tablero
+  //traigame todas las tareas de un usuario usando find()
+  const tablero = await Tablero.find({ idUsuario: req.usuario._id });
+  res.send(tablero);
+});
+```
+Al agregar esto ya vamos a postman y colocamos http://localhost:3000/api/tablero/lista en GET nos logeamos copiamos el token y en Athorization lo colocamos, y consultamos, debería traer todo las asignaciones de ese usuario.
+
+```
+//13. EDITAR ACTIVIDAD
+router.put("/", auth, async (req, res) => {
+  //Buscar el id del usuario logeado
+  const usuario = await Usuario.findById(req.usuario._id);
+  //si el usuario no existe
+  if (!usuario) return res.status(401).send("El usuario no existe");
+  //si existe
+  //Realizamos el Update
+  const tablero = await Tablero.findByIdAndUpdate(
+    req.body._id,
+    {
+      idUsuario: usuario._id,
+      nombre: req.body.nombre,
+      descripcion: req.body.descripcion,
+      estado: req.body.estado,
+    },
+    {
+      new: true,
+    }
+  );
+  //si no hay actividad para el usuario
+  if (!tablero) return res.status(401).send("no hay actividad asignada");
+  //si se realizo un update a alguna actividad
+  res.status(200).send(tablero);
+});
+```
+
+
+En Postman http://localhost:3000/api/tablero/ con PUT
+en el body enviamos lo que vamos a modificar y colocamos el token
+```json
+{
+    "_id": "5f9c21d77017de4f0c51cb61",
+    "nombre": "crear home 1",
+    "descripcion": "crear home en html y css1",
+    "estado": "terminada"
+}
+```
+
+```
+//14.ELIMINAR ACTIVIDAD en tablero 
+router.delete("/:_id", auth, async (req, res) => {
+  //Buscar el id del usuario logeado
+  const usuario = await Usuario.findById(req.usuario._id);
+  //si el usuario no existe
+  if (!usuario) return res.status(401).send("El usuario no existe");
+  //si existe
+  //usamos delete, remove es mas complicado de usar
+  const tablero = await Tablero.findByIdAndDelete(req.params._id);
+  //si no existe actividad
+  if (!tablero) return res.status(401).send("no hay actividad con ese id");
+  //si se encuentra la actividad
+  res.status(200).send({ message: "Actividad eliminada" });
+});
+```
+
+En Postman le pondremos un DELETE y http://localhost:3000/api/tablero/5f97036a5a3a652ae0057c914
+Donde el numero final seria el numero de id de la actividad a borrar y colocamos el token del usuario
+
+
