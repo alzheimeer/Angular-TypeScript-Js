@@ -1,0 +1,16 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.spacerIcon {
+    flex: 0.1 0.1 auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
+    background-color: rgb(110, 110, 110);
+}
