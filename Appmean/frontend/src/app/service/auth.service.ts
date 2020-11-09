@@ -17,4 +17,16 @@ export class AuthService {
   loginUsuario(usuario){
     return this.http.post<any>(this.loginUrl, usuario)
   }
+
+  loginOn(){
+    //!! convierte en true o false
+    //hay o no hay token
+    return !!localStorage.getItem('token');
+  }
+
+  obtenerToken(){
+    //devuelve el token
+    return localStorage.getItem('token');    
+  }
+
 }

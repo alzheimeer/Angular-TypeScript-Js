@@ -1,1 +1,35 @@
-<p>crear works!</p>
+<div class="form">
+  <mat-card class="card">
+    <mat-card-title>Registrar Usuario</mat-card-title>
+    <mat-card-content>
+      <div class="container">
+        <mat-form-field>
+          <input
+            [(ngModel)]="crearActividad.nombre"
+            matInput
+            placeholder="Nombre"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="crearActividad.estado"
+            matInput
+            placeholder="Estado"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="crearActividad.descripcion"
+            matInput
+            placeholder="Descripcion"
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="crear()" class="button col" mat-raised-button>
+        Crear
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

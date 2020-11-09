@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-crear',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) {}
 
+  crearActividad = {
+    nombre: '',
+    estado: '',
+    descripcion: ''
+  }
   ngOnInit(): void {
   }
 
+  crear(){}
 }

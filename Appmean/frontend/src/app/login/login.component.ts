@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
     this.auth.loginUsuario(this.loguear).subscribe(
       (res) => {
         console.log(res);
+        localStorage.setItem('token', res.jwtToken)
+        this.router.navigate(['/listarActividad'])
       },
       (err) => console.log(err)
     );
