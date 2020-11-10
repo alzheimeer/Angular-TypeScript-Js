@@ -1,1 +1,27 @@
-<p>hola</p>
+<div class="accordion_display">
+  <div class="accordion_size">
+    <mat-accordion multi="true" *ngIf="lista.length">
+      <mat-expansion-panel *ngFor="let lista of lista" hiddenToggle="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="text_center"> {{ lista.nombre }} </span>
+            <span class="spacer"></span>
+            <button class="btDone" *ngIf="lista.estado == 'terminada'" mat-raised-button>{{ lista.estado }}</button>
+            <button class="btInProgress" *ngIf="lista.estado == 'iniciada'" mat-raised-button>{{ lista.estado }}</button>
+            <button class="btToDo" *ngIf="lista.estado == 'asignada'" mat-raised-button>{{ lista.estado }}</button>
+          </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            {{ lista.descripcion }}
+        </mat-panel-description>
+        <mat-action-row>
+          <button class="btSelectTodo" mat-button (click)="cambiarEstado(lista, 'asignada')">Asignada</button>
+          <button class="btSelectInProgress" mat-button (click)="cambiarEstado(lista, 'iniciada')">Iniciada</button>
+          <button class="btSelectDone" mat-button (click)="cambiarEstado(lista, 'terminada')">Terminada</button>
+          <span class="spacer"></span>
+          <mat-icon color="primary" (click)="eliminar(lista)" arial-Label="delete_forever">delete_forever</mat-icon>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

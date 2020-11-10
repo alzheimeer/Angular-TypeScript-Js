@@ -9,18 +9,16 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) { }
 
-  loguear = {
-    correo: '',
-    pass: '',
-  };
-  ngOnInit(): void {}
+  loguear = { correo: '', pass: '', };
+
+  ngOnInit(): void { }
+
   login() {
     this.auth.loginUsuario(this.loguear).subscribe(
       (res) => {
         console.log(res);
-        console.log('Guard token en localstorage');
         localStorage.setItem('token', res.jwtToken);
         this.router.navigate(['/listarActividades']);
       },

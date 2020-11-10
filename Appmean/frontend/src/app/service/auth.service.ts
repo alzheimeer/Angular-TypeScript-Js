@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private registroUrl = 'http://localhost:3000/api/usuario/';
   private loginUrl = 'http://localhost:3000/api/auth';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   // Creamos un obserbable
   // usuario seria un json
   registroUsuario(usuario) {
@@ -20,15 +20,11 @@ export class AuthService {
   loginOn() {
     //!! convierte en true o false
     //hay o no hay token
-    console.log('loginon');
-    console.log(!!localStorage.getItem('token'));
     return !!localStorage.getItem('token');
   }
 
   obtenerToken() {
     //devuelve el token
-    console.log('obtener token');
-    console.log(localStorage.getItem('token'));
     return localStorage.getItem('token');
   }
 }
