@@ -1,32 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private registroUrl = 'http://localhost:3000/api/usuario/';
   private loginUrl = 'http://localhost:3000/api/auth';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   // Creamos un obserbable
   // usuario seria un json
   registroUsuario(usuario) {
-    return this.http.post<any>(this.registroUrl, usuario)
+    return this.http.post<any>(this.registroUrl, usuario);
   }
-  loginUsuario(usuario){
-    return this.http.post<any>(this.loginUrl, usuario)
+  loginUsuario(usuario) {
+    return this.http.post<any>(this.loginUrl, usuario);
   }
 
-  loginOn(){
+  loginOn() {
     //!! convierte en true o false
     //hay o no hay token
+    console.log('loginon');
+    console.log(!!localStorage.getItem('token'));
     return !!localStorage.getItem('token');
   }
 
-  obtenerToken(){
+  obtenerToken() {
     //devuelve el token
-    return localStorage.getItem('token');    
+    console.log('obtener token');
+    console.log(localStorage.getItem('token'));
+    return localStorage.getItem('token');
   }
-
 }

@@ -1,29 +1,49 @@
 <div class="form">
-    <mat-card class="card">
+  <mat-card class="card">
     <mat-card-title>Registrar Usuario</mat-card-title>
     <mat-card-content>
-        <div class="container">
-            <mat-form-field>
-                <input [(ngModel)]="registroUsuario.nombre" matInput placeholder="Nombre" />
-            </mat-form-field>
-            <mat-form-field>
-                <input [(ngModel)]="registroUsuario.cedula" matInput placeholder="Cedula" />
-            </mat-form-field>
-            <mat-form-field>
-                <input [(ngModel)]="registroUsuario.edad" matInput placeholder="Edad" />
-            </mat-form-field>
-            <mat-form-field>
-                <input [(ngModel)]="registroUsuario.correo" matInput placeholder="Correo" />
-            </mat-form-field>
-            <mat-form-field>
-                <input [(ngModel)]="registroUsuario.pass" matInput placeholder="Contraeña" />
-            </mat-form-field>
-        </div>
+      <div class="container">
+        <mat-form-field>
+          <input
+            [(ngModel)]="registroUsuario.nombre"
+            matInput
+            placeholder="Nombre"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="registroUsuario.cedula"
+            matInput
+            placeholder="Cedula"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="registroUsuario.edad"
+            matInput
+            placeholder="Edad"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="registroUsuario.correo"
+            matInput
+            placeholder="Correo"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="registroUsuario.pass"
+            matInput
+            placeholder="Contraeña"
+          />
+        </mat-form-field>
+      </div>
     </mat-card-content>
     <mat-card-actions>
-        <button (click)="registrar()" class="button col" mat-raised-button>
-      Registrar
-    </button>
+      <button (click)="registrar()" class="button col" mat-raised-button>
+        Registrar
+      </button>
     </mat-card-actions>
-</mat-card>
+  </mat-card>
 </div>
