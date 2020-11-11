@@ -1,12 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './component/shared/navbar/navbar.component';
-import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
+import { HeroeComponent } from './component/heroe/heroe.component';
 import { HeroesComponent } from './component/heroes/heroes.component';
+import { HomeComponent } from './component/home/home.component';
+import { NavbarComponent } from './component/shared/navbar/navbar.component';
+import { HeroesService } from './servicios/heroes.service';
+import { BuscadorComponent } from './component/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,15 @@ import { HeroesComponent } from './component/heroes/heroes.component';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroeComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HeroesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
