@@ -1306,6 +1306,7 @@ providers: [
 Vamos a crear.component.ts
 
 Y creamos la function crear y colocamos el import
+Aquí también colocamos una redirección para que luego de crear vaya a listarActividad
 ```
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -1336,6 +1337,7 @@ export class CrearComponent implements OnInit {
     this.tablero.crearActividad(this.crearActividad).subscribe(
       (res) => {
         console.log(res);
+         this.router.navigate(['/listarActividad']);
       },
       (err) => {
         console.log(err);
@@ -1525,3 +1527,64 @@ export class ListarComponent implements OnInit {
 </div>
 ```
 
+AHORA VAMOS A ESCONDER LOGIN Y REGISTRO LUEGO DE QUE LA PERSONA SE LOGUEA
+
+Vamos al auth.service.ts
+Importamos 
+```
+import { Router } from '@angular/router';
+```
+Luego lo declaramos en el constructor
+```
+private router: Router
+```
+y creamos un método llamado cerrarSesion(){}
+```
+cerrarSesion() {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
+    }
+```
+Vamos a borrar en el localstorage y apenas lo haga nos redirecciona a login.
+
+Ahora vamos a menú.component.ts
+```
+import { AuthService } from '../service/auth.service';
+
+
+constructor(public auth: AuthService)
+```
+Tambien vamos al menu.component.html
+Y ubicamos lo que va a desaparecer y le implantamos un *ngIf
+
+
+```
+<mat-toolbar class="menu">
+    <mat-icon aria-hidden="false" aria-label="event">event</mat-icon>
+    <ul>
+        <a routerLink="crearActividad"> Crear actividad </a>
+    </ul>
+    <span class="spacerIcon"></span>
+    <mat-icon aria-hidden="false" aria-label="fact_check">fact_check</mat-icon>
+    <ul>
+        <a routerLink="listarActividades"> Lista de actividades </a>
+    </ul>
+
+    <span class="spacer"></span>
+    <ul>
+        <mat-icon *ngIf="!auth.loginOn()" aria-hidden="false" aria-label="account_box">account_box</mat-icon>
+        <a *ngIf="!auth.loginOn()" routerLink="login"> Login</a>
+    </ul>
+    <ul>
+        <mat-icon *ngIf="!auth.loginOn()" aria-hidden="false" aria-label="account_circle">account_circle</mat-icon>
+        <a *ngIf="!auth.loginOn()" routerLink="registro"> Registro</a>
+    </ul>
+
+    <ul>
+        <mat-icon *ngIf="auth.loginOn()" aria-hidden="false" aria-label="login">login</mat-icon>
+        <a (click)="auth.cerrarSesion()" *ngIf="auth.loginOn()" mat-button>Cerrar Sesion</a>
+    </ul>
+</mat-toolbar>
+```
+Aqui ya se soluciona el problema de auth y e bear token
+ya que al cerrar sesion se borra el token del localstorage, y ya que auth es el proceso que genera el token no hay lio.

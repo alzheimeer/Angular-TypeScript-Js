@@ -26,7 +26,8 @@ export class CrearComponent implements OnInit {
   crear() {
     this.tablero.crearActividad(this.crearActividad).subscribe(
       (res) => {
-        console.log(res);
+            console.log(res);
+            this.router.navigate(['/listarActividad']);
       },
       (err) => {
         console.log(err);
