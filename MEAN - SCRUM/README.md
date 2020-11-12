@@ -1,3 +1,7 @@
+![](MEAN-1.png)
+![](MEAN-2.png)
+![](MEAN-3.png)
+![](MEAN-4.png)
 APPMEAN
 
 1.	Creamos la carpeta de proyecto AppMean y dentro otra llamada backend
