@@ -10,6 +10,7 @@ import { HomeComponent } from './component/home/home.component';
 import { NavbarComponent } from './component/shared/navbar/navbar.component';
 import { HeroesService } from './servicios/heroes.service';
 import { BuscadorComponent } from './component/buscador/buscador.component';
+import { HeroeTarjetaComponent } from './component/heroe-tarjeta/heroe-tarjeta.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BuscadorComponent } from './component/buscador/buscador.component';
     AboutComponent,
     HeroesComponent,
     HeroeComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    HeroeTarjetaComponent
   ],
   imports: [
     BrowserModule,
