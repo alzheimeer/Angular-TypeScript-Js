@@ -7,26 +7,30 @@ import { AppComponent } from './app.component';
 import { ArtistaComponent } from './components/artista/artista.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { NoimagePipe } from './pipes/noimage.pipe';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    SearchComponent,
-    ArtistaComponent,
-    NavbarComponent,
-    NoimagePipe,
-    TarjetasComponent
-  ],
-  imports: [
-    BrowserModule,
-      AppRoutingModule,
-      HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        SearchComponent,
+        ArtistaComponent,
+        NavbarComponent,
+        DomseguroPipe,
+        NoimagePipe,
+        TarjetasComponent,
+        LoadingComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
