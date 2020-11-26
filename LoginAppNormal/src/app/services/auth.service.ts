@@ -5,27 +5,33 @@ import { map } from 'rxjs/operators';
 import { UsuarioModel } from '../models/usuario.models';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
 
     private url = 'https://identitytoolkit.googleapis.com/v1/';
-    private apikey = 'AIzaSyAkhDBJpJxu-EjiHR3EpPKkLmbttqW2INQ';
+    private apikey = '*******colocar aqui la apikey';
     userToken: string;
+
+
+    
     //crear nuevo usuario
-  //https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
-        
+    //https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
+
     //Login
     //https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
+
+
+
     constructor(private http: HttpClient) {
         this.leerToken();
     }
-    
+
     logout() {
         localStorage.removeItem('token');
     }
 
-    logIn(usuario: UsuarioModel) { 
+    logIn(usuario: UsuarioModel) {
         const authData = {
             ...usuario,
             returnSecureToken: true
@@ -35,7 +41,7 @@ export class AuthService {
             authData
         ).pipe(
             map(resp => {
-                
+
                 this.guardarToken(resp['idToken']);
                 return resp;
             })
@@ -53,7 +59,7 @@ export class AuthService {
             authData
         ).pipe(
             map(resp => {
-                
+
                 this.guardarToken(resp['idToken']);
                 return resp;
             })
@@ -61,7 +67,7 @@ export class AuthService {
     }
 
 
-    private guardarToken(idToken:string) {
+    private guardarToken(idToken: string) {
         this.userToken = idToken;
         localStorage.setItem('token', idToken);
 
@@ -73,17 +79,17 @@ export class AuthService {
 
     private leerToken() {
         if (localStorage.getItem('token')) {
-            this.userToken = localStorage.getItem('token');    
+            this.userToken = localStorage.getItem('token');
         } else {
             this.userToken = '';
         }
         return this.userToken;
-        
+
     }
 
 
-    estaAutenticado():boolean {
-        
+    estaAutenticado(): boolean {
+
         if (this.userToken.length < 2) {
             return false;
         }
@@ -101,6 +107,6 @@ export class AuthService {
 
 
 
-        
+
     }
 }
