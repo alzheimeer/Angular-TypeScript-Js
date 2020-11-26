@@ -1,0 +1,8 @@
+<h1>Perfil De Usuario</h1>
+<hr>
+
+<pre *ngIf="auth.user$ | async as user">
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+    <li>{{ user | json }}</li>
+</pre>
